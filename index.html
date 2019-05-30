@@ -16,7 +16,7 @@ xmlhttp.onreadystatechange = function() {
     var myObj = JSON.parse(this.responseText);
     //document.getElementById("demo").innerHTML = myObj.title;
 	
-	var heroes = myObj['sessions'];
+	
 	
   }
 };
@@ -24,7 +24,7 @@ xmlhttp.open("GET", "twoLinks.txt", true);
 xmlhttp.send();
 
 
-
+var heroes = myObj['sessions'];
 
 var section = document.querySelector('section');
 
