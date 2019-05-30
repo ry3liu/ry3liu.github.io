@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Create Object from JSON String</h2>
+
+<p id="demo"></p>
+
+<header>
+</header>
+
+<section>
+</section>
+
+<script>
+/*-var txt = '{"name":"John", "age":30, "city":"New York"}'
+var obj = JSON.parse(txt);
+document.getElementById("demo").innerHTML = obj.name + ", " + obj.age;
+
+
+
+
+var a = '{"BD": "Bangladesh","BE": "Belgium","BF": "Burkina Faso","BG":"Bulgaria","BA": "Bosnia and Herzegovina"}'
+var obj = JSON.parse(a);
+var select = document.createElement('SELECT')
+select.name="optCountry" 
+select.id="opt_country"
+document.body.appendChild(select)
+
+Object.keys(obj).forEach(function(a){
+document.getElementById('opt_country').innerHTML +='<option value="'+a+'">'+obj[a]+'</option>'
+})
+*/
+
+var header = document.querySelector('header');
+var section = document.querySelector('section');
+
+var requestURL = 'https://fbr.me/data/chi19-schedule.json';
+
+var request = new XMLHttpRequest();
+request.open('GET', requestURL);
+request.responseType = 'json';
+request.send();
+
+request.onload = function() {
+  var superHeroes = request.response;
+//populateHeader(superHeroes);
+   showHeroes(superHeroes);
+
+}
+
+/*
+function populateHeader(jsonObj) {
+  var myH1 = document.createElement('h1');
+  myH1.textContent = jsonObj['squadName'];
+  header.appendChild(myH1);
+
+  var myPara = document.createElement('p');
+  myPara.textContent = 'Hometown: ' + jsonObj['homeTown'] + ' // Formed: ' + jsonObj['formed'];
+  header.appendChild(myPara);
+}
+*/
+
+function showHeroes(jsonObj) {
+  var heroes = jsonObj['members'];
+      
+  for (var i = 0; i < heroes.length; i++) {
+    var myArticle = document.createElement('article');
+    var myH2 = document.createElement('h2');
+    
+
+    myH2.textContent = heroes[i].name;
+    
+
+    myArticle.appendChild(myH2);
+   
+
+    section.appendChild(myArticle);
+  }
+}
+
+
+</script>
+
+</body>
+</html>
