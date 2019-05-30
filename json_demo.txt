@@ -1,1 +1,1 @@
-{"name":"Alberta","abbreviation":"AB"},{"name":"British Columbia","abbreviation":"BC"}
+{"name":"Alberta","abbreviation":"AB"}
