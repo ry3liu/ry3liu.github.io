@@ -14,7 +14,7 @@ var xmlhttp = new XMLHttpRequest();
 xmlhttp.onreadystatechange = function() {
   if (this.readyState == 4 && this.status == 200) {
     var myObj = JSON.parse(this.responseText);
-    //document.getElementById("demo").innerHTML = myObj.title;
+    document.getElementById("demo").innerHTML = myObj.sessions;
 	
 	
 	
@@ -24,7 +24,7 @@ xmlhttp.open("GET", "twoLinks.txt", true);
 xmlhttp.send();
 
 
-var heroes = myObj['sessions'];
+//var heroes = myObj['sessions'];
 
 var section = document.querySelector('section');
 
